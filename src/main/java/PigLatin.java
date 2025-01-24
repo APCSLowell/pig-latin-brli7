@@ -44,17 +44,16 @@ public class PigLatin {
         return "ERROR!";
       }
       
-      String text = sWord;
-  if(findFirstVowel(text) > 0) {
-    text = text.substring(findFirstVowel(text)) + text.substring(0, findFirstVowel(text));
-  }
-  if(findFirstVowel(text.substring(text.length()-1, text.length())) >= 0) {
-    text = text + "way";
-  } else if (text.charAt(text.length()-1) == 'q') {
-    text = text + "uay";
-  } else {
-    text = text + "ay";
-  }
-  return text;
+      if(findFirstVowel(sWord) == 0 && findFirstVowel(sWord.substring(sWord.length()-1)) > -1) {
+        return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "way";
+      }
+      if(findFirstVowel(sWord) <= 0) {
+        return sWord + "ay";
+      }
+      if((sWord.substring(0,1).equals("q"))) {
+        return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "uay";
+      }
+      return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "ay";
+  */
 }//end PigLatin class
 }
