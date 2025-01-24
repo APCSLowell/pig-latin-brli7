@@ -27,7 +27,7 @@ public String pigLatin(String sWord)
   if(sWord.length() <= 0) {
         return "ERROR!";
       }
-      /*
+      
       if(findFirstVowel(sWord) == 0 && findFirstVowel(sWord.substring(sWord.length()-1)) > -1) {
         return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "way";
       }
@@ -35,22 +35,8 @@ public String pigLatin(String sWord)
         return sWord + "ay";
       }
       if((sWord.substring(0,1).equals("q"))) {
-        return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "uay";
+        return sWord.substring(findFirstVowel(sWord)+1) + sWord.substring(0, findFirstVowel(sWord)) + "uay";
       }
       return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "ay";
-  */
-  
-  String text = sWord;
-  if(findFirstVowel(text) > 0) {
-    text = text.substring(findFirstVowel(text)) + text.substring(0, findFirstVowel(text));
-  }
-  if(findFirstVowel(text.substring(text.length()-1, text.length())) >= 0) {
-    text = text + "way";
-  } else if (text.charAt(text.length()-1) == 'q') {
-    text = text.substring(1) + "uay";
-  } else {
-    text = text + "ay";
-  }
-  return text;
   
 }
